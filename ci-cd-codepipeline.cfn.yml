@@ -112,6 +112,14 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
 
+  RequestsLambdaLayer:
+    Type: AWS::Lambda::LayerVersion
+    Properties: 
+      Content: 
+        S3Bucket: lambda-layer-python-1
+        S3Key: AWS_Lambda_Layer.zip
+      Description: Lambda Layer containing the Requests Python library
+
   CustomResourceLambda:
     Type: AWS::Lambda::Function
     Properties:
@@ -119,7 +127,7 @@ Resources:
         ZipFile: |
           import json
           import boto3
-          from botocore.vendored import requests
+          import requests # used to be --> from botocore.vendored import requests
           def handler(event, context):
             response = {
               'Status': 'SUCCESS',
