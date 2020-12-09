@@ -16,8 +16,6 @@ _mailinglist
 .idea/
 docs/_build/
 __pycache__
-.env_file
-IAM_Role/
 
 # Coverage reports
 htmlcov/
@@ -28,3 +26,4 @@ htmlcov/
 # Direnv
 .envrc
 .direnv
+aws-auth-patch.yml
